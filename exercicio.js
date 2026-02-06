@@ -83,3 +83,56 @@
             console.log('Opção inválida!');
         break;
     }
+
+    // Crie um programa que, dado o valor da idade, verifique se a pessoa pode ou não entrar no evento. 
+    // Exiba a mensagem informando se o acesso foi ou não permitido.
+    // Para entrar, a pessoa precisa ter 18 anos ou mais.
+
+    const idadePermissao = 20;
+
+    const permissao = idadePermissao >= 18 ? 'Acesso permitido.' : 'Acesso negado.';
+    console.log (permissao);
+
+    //Você está desenvolvendo um sistema meteorológico para informar sobre o clima do dia. Com base na temperatura, o sistema deve classificar o dia conforme os critérios abaixo:
+    // Menor que 15: "Frio"
+    // De 15 a 25: "Agradável"
+    // Acima de 25: "Quente"
+    // Escreva um programa que, dado um valor de temperatura e imprima a mensagem correspondente.
+
+    const temperatura = 32;
+
+    if (temperatura < 15) {
+        console.log('Frio');
+    } else if (temperatura >= 15 && temperatura <= 25){
+        console.log('Agradável');
+    } else{
+        console.log('Quente')
+    }
+
+    //Você é uma pessoa desenvolvedora de um sistema para uma escola que organiza atividades para diferentes faixas etárias. As regras são:
+    // Se a pessoa tiver menos de 12 anos, ela deve ser classificada como "Infantil". 
+    // Se a pessoa tiver 12 anos ou mais, mas menos de 18 anos, ela deve ser classificada como "Juvenil".
+    // Se a pessoa tiver 18 anos ou mais, ela deve ser classificada como "Adulto".
+
+    const idadePessoa = 20;
+
+    if (idadePessoa < 12) {
+        console.log('Infantil');
+    } else if (idadePessoa >= 12 && idadePessoa < 18) {
+        console.log('Juvenil');
+    } else{
+        console.log('Adulto');
+    }
+
+    // Você está desenvolvendo um sistema para controlar o horário de funcionamento de uma loja. Durante a semana, a loja abre das 9h às 18h, mas aos sábados e domingos, ela abre em horário especial, das 10h às 14h.
+    // Crie um programa que, dado o dia da semana em formato numérico:
+    // 0: Domingo
+    // 1: Segunda-feira
+    // 2: Terça-feira
+    // 3: Quarta-feira
+    // 4: Quinta-feira
+    // 5: Sexta-feira
+    // 6: Sábado
+    // Verifique se a loja está aberta e qual o horário de funcionamento.
+    // Se for sábado (6) ou domingo (0), a loja estará aberta em horário especial.
+    // Nos outros dias, a loja estará aberta no horário normal.
