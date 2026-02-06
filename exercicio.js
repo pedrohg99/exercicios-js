@@ -88,9 +88,9 @@
     // Exiba a mensagem informando se o acesso foi ou não permitido.
     // Para entrar, a pessoa precisa ter 18 anos ou mais.
 
-    const idade = 20;
+    const idadePermissao = 20;
 
-    const permissao = idade >= 18 ? 'Acesso permitido.' : 'Acesso negado.';
+    const permissao = idadePermissao >= 18 ? 'Acesso permitido.' : 'Acesso negado.';
     console.log (permissao);
 
     //Você está desenvolvendo um sistema meteorológico para informar sobre o clima do dia. Com base na temperatura, o sistema deve classificar o dia conforme os critérios abaixo:
@@ -107,4 +107,19 @@
         console.log('Agradável');
     } else{
         console.log('Quente')
+    }
+
+    //Você é uma pessoa desenvolvedora de um sistema para uma escola que organiza atividades para diferentes faixas etárias. As regras são:
+    // Se a pessoa tiver menos de 12 anos, ela deve ser classificada como "Infantil". 
+    // Se a pessoa tiver 12 anos ou mais, mas menos de 18 anos, ela deve ser classificada como "Juvenil".
+    // Se a pessoa tiver 18 anos ou mais, ela deve ser classificada como "Adulto".
+
+    const idadePessoa = 20;
+
+    if (idadePessoa < 12) {
+        console.log('Infantil');
+    } else if (idadePessoa >= 12 && idadePessoa < 18) {
+        console.log('Juvenil');
+    } else{
+        console.log('Adulto');
     }
