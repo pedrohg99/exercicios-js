@@ -83,3 +83,18 @@
             console.log('Opção inválida!');
         break;
     }
+
+    // Crie um programa que, dado o valor da idade, verifique se a pessoa pode ou não entrar no evento. 
+    // Exiba a mensagem informando se o acesso foi ou não permitido.
+    // Para entrar, a pessoa precisa ter 18 anos ou mais.
+
+    const idade = 20;
+
+    const permissao = idade >= 18 ? 'Acesso permitido.' : 'Acesso negado.';
+    console.log (permissao);
+
+    //Você está desenvolvendo um sistema meteorológico para informar sobre o clima do dia. Com base na temperatura, o sistema deve classificar o dia conforme os critérios abaixo:
+    // Menor que 15: "Frio"
+    // De 15 a 25: "Agradável"
+    // Acima de 25: "Quente"
+    // Escreva um programa que, dado um valor de temperatura e imprima a mensagem correspondente.
