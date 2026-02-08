@@ -162,3 +162,9 @@
     const fruta = 'kiwi';
     const suco = (fruta === 'laranja') || (fruta === 'abacaxi') ? 'Fruta compatível para a receita.' : 'Fruta incompatível para a receita.';
     console.log(suco);
+
+    //Imagine que você está desenvolvendo um site de compras. A pessoa só pode finalizar a compra se o carrinho não estiver vazio.
+    // Crie um programa que, com base na variável carrinhoVazio (booleana), verifique se a compra pode ser finalizada. Se o carrinho não estiver vazio, mostre: "Compra finalizada com sucesso!". Caso contrário, exiba: "Não é possível finalizar a compra: carrinho vazio."
+    const carrinhoVazio = true;
+    const finalizaCompra = (!carrinhoVazio) ? 'Compra finalizada com sucesso!' : 'Não é possível finalizar a compra: carrinho vazio.'
+    console.log(finalizaCompra)
