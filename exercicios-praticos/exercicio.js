@@ -136,3 +136,81 @@
     // Verifique se a loja está aberta e qual o horário de funcionamento.
     // Se for sábado (6) ou domingo (0), a loja estará aberta em horário especial.
     // Nos outros dias, a loja estará aberta no horário normal.
+
+    const diaDaSemana = 0;
+
+    if (diaDaSemana >= 1 && diaDaSemana < 6) {
+        console.log('A loja está aberta no horário normal: 9h às 18h.');
+    } else if (diaDaSemana === 6 || diaDaSemana === 0){
+        console.log('A loja está aberta em horário especial: 10h às 14h.');
+    } else {
+        console.log('Dia da semana inválido!')
+    }
+
+    // Você está criando um sistema de autenticação de usuários para um site. O sistema deve verificar se o usuário digitado é "admin". Se o usuário for "admin", o login será bem-sucedido e será exibida a mensagem "Login bem-sucedido!". Caso contrário, o sistema deve exibir "Usuário inválido."
+    // Crie um programa utilizando o operador ternário que realize essa verificação e exiba a mensagem correspondente.
+
+    const usuario = "admin";
+    const userPermission = (usuario === 'admin') ? 'Login bem-sucedido!' : 'Usuário inválido.';
+    console.log(userPermission);
+
+    //Você está desenvolvendo um sistema para verificação de compatibilidade de frutas em um processo de preparo de sucos. O sistema precisa verificar se o tipo de fruta informado é compatível com o tipo esperado, de acordo com uma receita.
+    // O suco pode ser feito somente com "laranja" ou "abacaxi".
+    // Qualquer outra fruta que não seja "laranja" ou "abacaxi" deve gerar uma mensagem de erro, informando que a fruta não é compatível.
+    // Crie um programa que, dado o nome da fruta, verifique se ela é compatível com a receita.
+
+    const fruta = 'kiwi';
+    const suco = (fruta === 'laranja') || (fruta === 'abacaxi') ? 'Fruta compatível para a receita.' : 'Fruta incompatível para a receita.';
+    console.log(suco);
+
+    //Imagine que você está desenvolvendo um site de compras. A pessoa só pode finalizar a compra se o carrinho não estiver vazio.
+    // Crie um programa que, com base na variável carrinhoVazio (booleana), verifique se a compra pode ser finalizada. Se o carrinho não estiver vazio, mostre: "Compra finalizada com sucesso!". Caso contrário, exiba: "Não é possível finalizar a compra: carrinho vazio."
+    const carrinhoVazio = true;
+    const finalizaCompra = (!carrinhoVazio) ? 'Compra finalizada com sucesso!' : 'Não é possível finalizar a compra: carrinho vazio.';
+    console.log(finalizaCompra);
+
+    //Você está criando um sistema de verificação de status de pagamento de clientes. Dependendo do status, o sistema deve exibir uma mensagem apropriada: 
+    // Se o status for "pendente", exibe: "Pagamento pendente".
+    // Se o status for "aprovado", exibe: "Pagamento aprovado".
+    // Se o status for "recusado", exibe: "Pagamento recusado".
+    // Use o switch/case para criar um programa que faça essa verificação e mostre a mensagem correspondente ao status do pagamento.
+    const statusCompra = "nada"
+    switch (statusCompra) {
+        case 'aprovado':
+            console.log('Pagamento aprovado')
+            break;
+        case 'pendente':
+            console.log('Pagamento pendente')
+            break;
+        case 'recusado':
+            console.log('Pagamento recusado')
+            break;
+        default:
+            console.log('Opção inválida')
+            break;
+    }
+    
+    //Você está criando um sistema para um jogo, onde o personagem tem que passar por duas condições para conseguir avançar para o próximo nível:
+    // O personagem precisa ter mais de 50 pontos.
+    // O personagem deve ter pelo menos uma vida restante.
+    // Crie um programa que, dado os pontos e as vidas restantes, verifique se o personagem pode ou não avançar para o próximo nível.
+
+    const pontos = 50;
+    const vidas = 5;
+
+    if (pontos >= 50 && vidas > 0) {
+        console.log('Próximo nível liberado!');
+    } else {
+        console.log('Não pode avançar para o próximo nível.');
+    }
+
+    //Você está desenvolvendo um sistema que exibe a situação da bateria de um dispositivo com base na porcentagem de carga. O sistema deve classificar a bateria nas seguintes categorias:
+    // "Crítica": se a bateria estiver abaixo de 20%
+    // "Moderada": se estiver entre 20% e 80%
+    // "Cheia": se estiver acima de 80%
+    // Utilize o operador ternário para definir e exibir a categoria da bateria com base no valor da variável bateria.
+
+    const bateria = 20;
+
+    const categoria = (bateria < 20) ? 'Crítica' : (bateria <= 80) ? 'Moderada' : 'Cheia';
+    console.log(categoria);
