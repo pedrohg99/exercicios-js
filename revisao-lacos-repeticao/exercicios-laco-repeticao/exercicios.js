@@ -1,6 +1,8 @@
 // Você está criando um aplicativo para exibir a sequência de números até um valor que o usuário forneceu. O objetivo é mostrar todos os números a partir de 1 até o valor informado pelo usuário, de forma ordenada e crescente.
 // Como você pode gerar essa contagem e garantir que cada número seja mostrado até atingir o valor final fornecido?
 
+import { log } from "node:console";
+
 const numeroFinal = 5;
 
 for (let i = 1; i <= numeroFinal; i++) {
@@ -119,4 +121,27 @@ for (let i = 0; i < caixas.length; i++) {
     console.log("Limite de caixas processadas atingido!");
     break;
   }
+}
+
+//Você está desenvolvendo o sistema de login de um app interno da empresa. O sistema precisa permitir que o usuário tente digitar sua senha corretamente até 3 vezes. Se digitar certo, exibe uma mensagem de acesso permitido. Se errar 3 vezes, bloqueia o acesso.
+// Seu desafio é escolher o laço de repetição mais adequado para resolver este problema.
+
+const tentativas = ["1234", "admin", "secreto"];
+const senhaCorreta = "secreto"; 
+let index = 0;
+let acessoLiberado = false;
+ 
+while (index < tentativas.length && index < 3) {
+  if (tentativas[index] === senhaCorreta) {
+    console.log("Acesso permitido!");
+    acessoLiberado = true;
+    break;
+  } else {
+    console.log(`Tentativa ${index + 1} inválida.`);
+  }
+  index++;
+}
+ 
+if (!acessoLiberado) {
+  console.log("Acesso bloqueado. Número máximo de tentativas atingido.");
 }
