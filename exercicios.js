@@ -1,65 +1,77 @@
-// Verificação de maioridade
-console.log('Verificação de maioridade')
+for (let contador = 0; contador <= 100; contador++) {
+    console.log('O número é: ', contador)   
+}
 
-const idade = 17
-const maiorDeIdade = idade >= 18
+let soma = 0
+let contador = 1
+do{
+    soma += contador
+    contador++
+} while (contador <= 100)
 
-console.log('Sua idade é: ', idade)
-console.log('Você é maior de idade? ', maiorDeIdade)
+console.log("Soma de 1 a 100: " + soma); 
 
-// Calculadora de média e aprovação
-const notaUmAluno = 7.5
-const notaDoisAluno = 3.5
-const media = (notaUmAluno + notaDoisAluno) / 2
-let aprovacao = media >= 7
+// 3. Tabuada personalizada 
+let numeroTabuada = 5830
+let n = 0
+do{
+    console.log(numeroTabuada + " * " + n + " = " + (numeroTabuada * n)); 
+    n++
+} while (n <= 10)
 
-console.log('Sua nota na atividade de matemática foi: ', notaUmAluno)
-console.log('Sua nota na prova de Matemática foi: ', notaDoisAluno)
-console.log('Portanto sua média foi de ', media)
-console.log('Voce está aprovado? ', aprovacao)
+// Contagem regressiva
+let contagem = 10
+do{
+    console.log('Contagem em...: ', contagem)
+    contagem--
+}while (contagem >= 0)
+console.log ('Contagem finalizada!')
 
-// Simulação de troco
-const valorCompra = 35.90
-const valorPago = 50
-const troco = valorPago - valorCompra
-const validacao = valorCompra < valorPago
 
-console.log('O valor da sua compra foi de: R$', valorCompra)
-console.log('o valor pago foi de: R$', valorPago)
-console.log('Troco a pagar', troco)
-console.log('Precisa de Troco?', validacao)
+let numeroDigitado;
+let quantidade = 0;
+let repeticoes = 0;
 
-//Controle de Faltas
-const totalAulas = 30
-const faltas = 8
-const limite = totalAulas * 0.25
-const validacaoFaltas = faltas < limite
+do {
+  // simulação manual de entrada
+  if (repeticoes === 0) {
+    numeroDigitado = 5;
+  } else if (repeticoes === 1) {
+    numeroDigitado = 10;
+  } else {
+    numeroDigitado = 0;
+  }
 
-console.log('Uma escola tem uma quantia de aulas de', totalAulas)
-console.log('O aluno faltou em', faltas)
-console.log('Sabendo que 25% é o limite de faltas, o aluno está aprovado?', validacaoFaltas)
+  if (numeroDigitado !== 0) {
+    quantidade++;
+  }
 
-// Verificação de Login
-const temLogin = false
-const temSenha = false
-const temAcesso = temLogin && temSenha
+  repeticoes++;
+} while (numeroDigitado !== 0);
 
-console.log('Tem acesso ao conteúdo? ', temAcesso)
+console.log("Total de números digitados: " + quantidade);
 
-// Valor negado
-const disponivel = true
-const estaDisponivel = !disponivel
 
-console.log('Está offline? ', disponivel)
-console.log('Está disponível para conversar? ', estaDisponivel)
 
-//Condições Compostas
-const numeroUm = 2
-const numeroDois = 81
-//const par = numeroUm % 2 || numeroDois % 2
-const validacaoPar = numeroUm % 2 === 0 && numeroDois % 2 === 0
-//const validacaoPar = par == 0
+let numeroSecreto = 9
+let tentativa = 1
 
-console.log('O número um é: ', numeroUm)
-console.log('O número dois é: ', numeroDois)
-console.log('Ambos são par? ', validacaoPar)
+do {
+    if (tentativa === 1){
+        numeroTentado = 3;
+        tentativa++
+    } else if (tentativa === 2){
+        numeroTentado = 5;
+    } else {
+        numeroTentado = 9;
+        tentativa++
+    }
+
+    if (numeroTentado === numeroSecreto){
+        console.log('Acertou!');
+        tentativa++
+    } else {
+        console.log('Tente novamente');
+        tentativa++
+    }
+} while (tentativa <= 3)
