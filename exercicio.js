@@ -136,3 +136,13 @@
     // Verifique se a loja está aberta e qual o horário de funcionamento.
     // Se for sábado (6) ou domingo (0), a loja estará aberta em horário especial.
     // Nos outros dias, a loja estará aberta no horário normal.
+
+    const diaDaSemana = 0;
+
+    if (diaDaSemana >= 1 && diaDaSemana < 6) {
+        console.log('A loja está aberta no horário normal: 9h às 18h.');
+    } else if (diaDaSemana === 6 || diaDaSemana === 0){
+        console.log('A loja está aberta em horário especial: 10h às 14h.');
+    } else {
+        console.log('Dia da semana inválido!')
+    }
