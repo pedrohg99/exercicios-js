@@ -37,21 +37,7 @@ console.log(calculaJuros(1000, 5, 2));
 // criar uma função que faça operações matemáticas entre 2 valores (soma e multiplicação) 
 // função deve receber por parâmetro: operação desejada, valor1 e valor2
 
-function soma (a, b) { return a + b };
-function multiplica (a, b) { return a * b };
 
-function calcula(fnOperacao, valorA, valorB) {
-    return fnOperacao(valorA, valorB);
-}
-
-console.log(calcula(soma, 5, 5));
-console.log(calcula (multiplica, 5, 5));
 
 // criar uma função que emita uma mensagem caso o usuário 
 // x não esteja interagindo com o sistema após uma quantidade y de tempo
-
-const userId = '454656';
-const avisaUsuario = userId => console.log(`sessão de ${userId} está inativa`);
-
-setTimeout(avisaUsuario, 2000, userId);
-setTimeout((userId) => console.log(`sessão de ${userId} está inativa`), 4000, userId);
