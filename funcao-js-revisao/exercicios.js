@@ -37,7 +37,15 @@ console.log(calculaJuros(1000, 5, 2));
 // criar uma função que faça operações matemáticas entre 2 valores (soma e multiplicação) 
 // função deve receber por parâmetro: operação desejada, valor1 e valor2
 
-
+const operacaoMatematica = (operacao, valor1, valor2) => {
+    if (operacao === 'soma') {
+        return valor1 + valor2;       
+    } if (operacao === 'multiplicacao') {
+        return valor1 * valor2;       
+    }
+    return 'Operação inválida';
+}
+console.log(operacaoMatematica('multiplicacao', 2, 3));
 
 
 // criar uma função que emita uma mensagem caso o usuário 
