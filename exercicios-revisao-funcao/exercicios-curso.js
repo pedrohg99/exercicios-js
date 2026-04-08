@@ -23,4 +23,15 @@ console.log(calcularMedia(7, 9));
 
 const verificarParidade = (numero) => 
     numero % 2 === 0 ? "Par" : "Ímpar";
-console.log(verificarParidade(5)) 
+console.log(verificarParidade(5));
+
+const calcularFrete (distancia) => {
+    if (distancia <= 5) {
+        return 5;
+    } else if (distancia <= 20) {
+        return distancia * 0.50;
+    } else {
+        return 20;
+    }
+}
+console.log(calcularFrete (35));
