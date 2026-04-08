@@ -19,3 +19,8 @@ console.log(calcularDesconto(100));
 
 const calcularMedia = (nota1, nota2) => (nota1 + nota2) / 2;
 console.log(calcularMedia(7, 9));
+
+
+const verificarParidade = (numero) => 
+    numero % 2 === 0 ? "Par" : "Ímpar";
+console.log(verificarParidade(5)) 
