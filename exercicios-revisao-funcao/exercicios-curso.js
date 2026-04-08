@@ -15,3 +15,7 @@ function calcularDesconto(preco, desconto = 10){
 
 console.log(calcularDesconto(100, 20));
 console.log(calcularDesconto(100));
+
+
+const calcularMedia = (nota1, nota2) => (nota1 + nota2) / 2;
+console.log(calcularMedia(7, 9));
