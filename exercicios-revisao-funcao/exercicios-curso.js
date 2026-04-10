@@ -25,7 +25,7 @@ const verificarParidade = (numero) =>
     numero % 2 === 0 ? "Par" : "Ímpar";
 console.log(verificarParidade(5));
 
-const calcularFrete (distancia) => {
+const calcularFrete = (distancia) => {
     if (distancia <= 5) {
         return 5;
     } else if (distancia <= 20) {
@@ -52,5 +52,16 @@ function mensagemPersonalizada(nome, tipo) {
         console.log(`Obrigado pela sua compra, ${nome}!`);
     }
 }
- 
+
 processarPedido("Lucas", "vip", mensagemPersonalizada);
+
+
+function responderUsuario(nomeUser, callbackUser) {
+    console.log(`Processando sua pergunta...`);
+    setTimeout(() => callbackUser(nomeUser), 3000);
+}
+function mostrarResposta (nomeUser){
+    console.log(`Olá, ${nomeUser}! Aqui está a resposta para sua dúvida.`)
+}
+
+responderUsuario("Camila", mostrarResposta);
