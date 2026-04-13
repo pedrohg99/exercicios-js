@@ -61,7 +61,61 @@ function responderUsuario(nomeUser, callbackUser) {
     setTimeout(() => callbackUser(nomeUser), 3000);
 }
 function mostrarResposta (nomeUser){
-    console.log(`Olá, ${nomeUser}! Aqui está a resposta para sua dúvida.`)
+    console.log(`Olá, ${nomeUser}! Aqui está a resposta para sua dúvida.`);
 }
 
 responderUsuario("Camila", mostrarResposta);
+
+
+
+
+function avaliarDesempenho(pontuacao, callback) {
+    let status = ""; 
+    if (pontuacao >= 70) {
+        status = "aprovado";
+    } else if (pontuacao >= 50) {
+        status = "reforco";
+    } else {
+        status = "reprovado";
+    }
+    callback(pontuacao, status);
+}
+ 
+function gerarMensagem(pontuacao, status) {
+    console.log(`Pontuação: ${pontuacao}`); 
+    if (status === "aprovado") {
+        console.log("Parabéns! Você foi aprovado!");
+    } else if (status === "reforco") {
+        console.log("Atenção! Você precisa de reforço.");
+    } else {
+        console.log("Infelizmente, você foi reprovado. Tente novamente.");
+    }
+} 
+avaliarDesempenho(82, gerarMensagem);
+
+
+function calcularConsumo (potencia, horasPorDia){
+    return (potencia * horasPorDia * 30) / 1000;
+}
+function classificarConsumo (consumo){
+    if (consumo < 50){
+        return "Baixo consumo";
+    }else if (consumo > 200){
+        return "Consumo moderado";
+    }else{
+        return "Alto consumo!";
+    }
+}
+function exibirResumo (nomeAparelho, consumo, classificacao){
+    console.log(`${nomeAparelho} tem consumo de ${consumo} kWh/mês e é classificada como ${classificacao} consumo`);
+}
+
+const nomeAparelho = "Geladeira";
+const consumo = calcularConsumo(150, 4);
+const classificacao = classificarConsumo(consumo);
+exibirResumo (nomeAparelho, consumo, classificacao);
+
+
+
+
+    
