@@ -37,6 +37,7 @@ console.log(calculaJuros(1000, 5, 2));
 
 // criar uma função que faça operações matemáticas entre 2 valores (soma e multiplicação) 
 // função deve receber por parâmetro: operação desejada, valor1 e valor2
+<<<<<<< HEAD
 function soma(a, b) { return a + b };
 function multiplica(a, b) { return a * b };
 
@@ -50,3 +51,19 @@ console.log(multiplica, 5, 5);
 // x não esteja interagindo com o sistema após uma quantidade y de tempo
 const userId = '4545656';
 setTimeout((userId) => console.log(`sessão de ${userId} está inativa`), 4000, userId);
+=======
+
+const operacaoMatematica = (operacao, valor1, valor2) => {
+    if (operacao === 'soma') {
+        return valor1 + valor2;       
+    } if (operacao === 'multiplicacao') {
+        return valor1 * valor2;       
+    }
+    return 'Operação inválida';
+}
+console.log(operacaoMatematica('multiplicacao', 2, 3));
+
+
+// criar uma função que emita uma mensagem caso o usuário 
+// x não esteja interagindo com o sistema após uma quantidade y de tempo
+>>>>>>> 270e94ec89158bf8949a63d03f879e90bdd8bec5
