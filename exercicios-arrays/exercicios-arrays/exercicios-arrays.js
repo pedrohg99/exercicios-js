@@ -10,3 +10,8 @@ for (let i = 0; i < despesas.length; i++) {
     total += despesas[i];
 }
 console.log("Total de despesas: ", total);
+
+const estudantes = ['Carla', 'João', 'Marina', 'Lucas', 'Beatriz'];
+for (const elem of estudantes) {
+    console.log ("Estudante:", elem)
+}
