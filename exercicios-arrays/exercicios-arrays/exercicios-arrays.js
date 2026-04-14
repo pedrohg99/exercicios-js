@@ -15,3 +15,8 @@ const estudantes = ['Carla', 'João', 'Marina', 'Lucas', 'Beatriz'];
 for (const elem of estudantes) {
     console.log ("Estudante:", elem)
 }
+
+const mensagens = ['Pedido confirmado', 'Pagamento aprovado', 'Produto enviado'];
+mensagens.forEach(mensagem => {
+    console.log("Mensagem enviada:", mensagem);
+})
