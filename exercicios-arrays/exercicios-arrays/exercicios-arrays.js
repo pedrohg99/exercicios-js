@@ -20,3 +20,9 @@ const mensagens = ['Pedido confirmado', 'Pagamento aprovado', 'Produto enviado']
 mensagens.forEach(mensagem => {
     console.log("Mensagem enviada:", mensagem);
 })
+
+const tarefas = ['Estudar', 'Lavar roupa', 'Fazer compras'];
+tarefas.push('Pagar boletos');
+console.log("Lista após adicionar:", tarefas);
+const remover = tarefas.pop()
+console.log("Lista após remover a última tarefa:", tarefas);
