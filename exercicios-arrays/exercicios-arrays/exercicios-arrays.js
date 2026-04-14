@@ -41,3 +41,7 @@ if (livros.indexOf(livroProcurado) !== -1){
 } else {
     console.log(`O livro "${livroProcurado}" não está disponível.`);
 }
+
+const precos = [100, 80, 50, 120];
+let precosDesconto = precos.map(precos => precos * 0.9);
+console.log("Preços com desconto: ", precosDesconto);
