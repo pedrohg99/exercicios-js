@@ -26,3 +26,11 @@ tarefas.push('Pagar boletos');
 console.log("Lista após adicionar:", tarefas);
 const remover = tarefas.pop()
 console.log("Lista após remover a última tarefa:", tarefas);
+
+const pedidos = ['camiseta', 'calça', 'tênis'];
+const copiaPedidos = pedidos.slice();
+
+copiaPedidos.push('boné');
+console.log("Array original:", pedidos);
+console.log("Array copiado:", copiaPedidos);
+
