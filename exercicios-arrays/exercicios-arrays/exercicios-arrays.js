@@ -34,3 +34,10 @@ copiaPedidos.push('boné');
 console.log("Array original:", pedidos);
 console.log("Array copiado:", copiaPedidos);
 
+const livros = ['Dom Casmurro', 'O Cortiço', 'Capitães da Areia', 'Iracema'];
+const livroProcurado = 'O Cortiço';
+if (livros.indexOf(livroProcurado) !== -1){
+    console.log(`O livro "${livroProcurado}" está disponível.`);
+} else {
+    console.log(`O livro "${livroProcurado}" não está disponível.`);
+}
