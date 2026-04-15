@@ -21,3 +21,20 @@ function exibeTrofeus(listaTrofeus) {
     }
 }
 exibeTrofeus(pessoa.trofeus);
+
+// adicione ao obj um método para calcular a idade da pessoa e retornar o valor no terminal como string.
+const user = {
+    nome: 'Roberta r',
+    nascimento: '2020-01-01',
+    cpf: '23445667889',
+    pontuacao: 4576,
+    trofeus: ['speedrunner', 'indie',]
+};
+
+// calcula a idade da pessoa para retornar o valor no terminal.
+user.calculaIdade = function calculaIdade(){
+    const anoNasc = parseInt(this.nascimento.slice(0, 4)); //extrai o ano de nascimento, selecionando somente o ano com slice. parseInt converte para string para number.
+    const idade = new Date().getFullYear() - anoNasc; // idade recebe a data atual com new Date().getFullYear() e faz o calculo.
+    console.log(`A idade é ${idade}`);
+}
+user.calculaIdade();
