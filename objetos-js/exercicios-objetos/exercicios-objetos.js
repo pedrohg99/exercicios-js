@@ -60,3 +60,20 @@ const maquina = {
 }
 };
 maquina.exibirStatus();
+
+
+const dados = [
+    ['nome', 'João'],
+    ['idade', 30],
+    ['cidade', 'Curitiba']
+]
+
+function montarObjeto(dado){
+    const resultado = {};
+    for (const [chave, valor] of dado) {
+        resultado[chave] = valor;
+    }
+    return resultado;
+}
+
+console.log(montarObjeto(dados));
