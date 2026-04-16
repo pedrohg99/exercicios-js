@@ -4,3 +4,11 @@ const produto = {
     disponivel: true,
 };
 console.log(produto);
+
+const configuracoes = {
+    tema: 'escuro',
+    notificacoes: '',
+    idioma: 'pt-BR',
+};
+console.log("Tema: ", configuracoes.tema);
+console.log("Idioma: ", configuracoes['idioma']);
