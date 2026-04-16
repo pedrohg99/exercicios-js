@@ -47,3 +47,16 @@ const dispositivos = [
 for (const dispositivo of dispositivos) {
     console.log(`Dispositivo: ${dispositivo.nome} | Status ${dispositivo.status}`);
 }
+
+const maquina = {
+  nome: 'Esteira Transportadora',
+  funcionando: true,
+  exibirStatus: function (){
+    if (this.funcionando){
+        console.log(`A máquina ${maquina.nome} está em funcionamento`);
+    } else {
+        console.log(`A máquina ${maquina.nome} está parada`);
+    }
+}
+};
+maquina.exibirStatus();
