@@ -12,3 +12,11 @@ const configuracoes = {
 };
 console.log("Tema: ", configuracoes.tema);
 console.log("Idioma: ", configuracoes['idioma']);
+
+const receita = {
+    nome: 'Bolo de Fubá com Milho',
+    ingredientes: ['leite', 'ovo', 'farinha de trigo', 'fubá', 'milho'],
+    tempoPreparo: '1h45min',
+}
+
+console.log("Ingrediente complementar: ", receita.ingredientes[2]);
