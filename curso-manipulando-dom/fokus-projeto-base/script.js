@@ -5,9 +5,19 @@ const longoBt = document.querySelector('.app__card-button--longo')// relaciona a
 const banner = document.querySelector('.app__image')// relaciona a classe da imagem para alterar com o evento click
 const titulo = document.querySelector('.app__title')// relaciona a classe do título para alterar com o evento click
 const botoes = document.querySelectorAll('.app__card-button') // pega todos os elementos que estão com a classe app__card-button
+const sartPauseBt = document.querySelector('#start-pause')
 const musicaFocoInput = document.querySelector('#alternar-musica') // pega o ID do botão que ativa a musica
 const musica = new Audio('sons/luna-rise-part-one.mp3') // adiciona ao JS o arquivo de audio com new Audio
+const musicaPlay = new Audio('sons/play.wav')
+const musicaPausa = new Audio('sons/pause.mp3')
+const audioTempoFinalizado = new Audio('sons/beep.mp3')
+
+let tempoDecorridoEmSegundos = 5 //let inicia o temporizador em 5 segundos
+let intervaloId = null // let inicia o temporizador
+
 musica.loop = true;
+
+
 
 musicaFocoInput.addEventListener('change', () => {//pega a const musicaFocoInput, passa o parâmetro 'change' para o método addEventListener, para alterar a propriedade do elemento e adiciona uma condicionante 
     if(musica.paused){ // se musica estiver com a propriedade paused pode dar play, pois só pode dar play se estiver pausada.
@@ -50,6 +60,34 @@ function alterarContexto(contexto) {
         default: // caso não encontre nenhum desses valores, ele para o código e não altera nada.
             break;
     }
+}
+
+const contagemRegressiva = () => { // configura o temporizador para que seja decrementado sempre 1 segundo
+    if(tempoDecorridoEmSegundos <= 0){
+        audioTempoFinalizado.play()
+        alert('Tempo finalizado!')
+        zerar() // chama função para para a execução do código
+        return
+    }
+    tempoDecorridoEmSegundos -= 1
+    console.log('Temporizador: ' + tempoDecorridoEmSegundos)
+}
+
+sartPauseBt.addEventListener('click', iniciarOuPausar) // cria evento de click para inicar o temporizador.
+
+function iniciarOuPausar() {// inicia o temporizador criando o intervalo de 1s para cada decremento.
+    if(intervaloId){// se intervaloId for clicado, para o temporizador chamando a função zerar().
+        musicaPausa.play();
+        zerar()
+        return
+    }
+    musicaPlay.play()
+    intervaloId = setInterval(contagemRegressiva, 1000)
+}
+
+function zerar(){//função criada para finalizar a execução do código
+    clearInterval(intervaloId)//metodo clearInterval para de executar o intervaloId
+    intervaloId = null //retorna null para parar a execução da contagem
 }
 
 
