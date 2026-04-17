@@ -1,10 +1,11 @@
 const html = document.querySelector('html') // relaciona a tag HTML do .html para alterar o contexto.
 const focoBt = document.querySelector('.app__card-button--foco') // relaciona as classes dos botões para inserir o evento dos clicks
 const curtoBt = document.querySelector('.app__card-button--curto') // relaciona as classes dos botões para inserir o evento dos clicks
-const longoBt = document.querySelector('.app__card-button--longo')
-const banner = document.querySelector('.app__image')
+const longoBt = document.querySelector('.app__card-button--longo')// relaciona as classes dos botões para inserir o evento dos clicks
+const banner = document.querySelector('.app__image')// relaciona a classe da imagem para alterar com o evento click
+const titulo = document.querySelector('.app__title')// relaciona a classe do título para alterar com o evento click
 
-focoBt.addEventListener('click', () => {
+focoBt.addEventListener('click', () => { //cria evento click (efeito ao clicar no botao) inserindo a função alterarContexto para fazer o efeito de alterar cor de fundo e imagem.
     alterarContexto('foco')
 })
 
@@ -17,6 +18,20 @@ longoBt.addEventListener('click', () => {
 })
 
 function alterarContexto(contexto) {
-    html.setAttribute('data-contexto', contexto)
-    banner.setAttribute('src', `imagens/${contexto}.png`)
+    html.setAttribute('data-contexto', contexto) // pega o HTML, o atributo 'data-contexto' e muda o contexto
+    banner.setAttribute('src', `imagens/${contexto}.png`) // pega o banner (imagem) e muda o contexto (altera imagem ao clicar nos botoes). Pelo fato de contexto ser um elemento JS, é necessário inserir como string concatenada, pois imagens/... é um atributo HTML.
+    switch (contexto) {// pega o parametro contexto (que é responsável por fazer o efeito de alterar)
+        case 'foco': // é o primeiro contexto, do botão "Foco" do HTML.
+            titulo.innerHTML = `Otimize sua produtividade,<br><strong class="app__title-strong">mergulhe no que importa.</strong>` // pega o atributo titulo e usa um método para acessar o HTML e realizar alterações. Nesse caso, alteramos o texto com suas tags e classes. innerHTML é bom quando quer alterar algo do HTML
+            break;// para o efeito.
+        case 'descanso-curto':
+            titulo.innerHTML = `Que tal dar uma respirada?<br><strong class="app__title-strong">Faça uma pausa curta!</strong>`
+            break;
+        case 'descanso-longo':
+            titulo.innerHTML = `Hora de voltar à superfície<br><strong class="app__title-strong">Faça uma pausa longa.</strong>`
+        default: // caso não encontre nenhum desses valores, ele para o código e não altera nada.
+            break;
+    }
 }
+
+
