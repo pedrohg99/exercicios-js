@@ -4,20 +4,27 @@ const curtoBt = document.querySelector('.app__card-button--curto') // relaciona 
 const longoBt = document.querySelector('.app__card-button--longo')// relaciona as classes dos botões para inserir o evento dos clicks
 const banner = document.querySelector('.app__image')// relaciona a classe da imagem para alterar com o evento click
 const titulo = document.querySelector('.app__title')// relaciona a classe do título para alterar com o evento click
+const botoes = document.querySelectorAll('.app__card-button') // pega todos os elementos que estão com a classe app__card-button
 
 focoBt.addEventListener('click', () => { //cria evento click (efeito ao clicar no botao) inserindo a função alterarContexto para fazer o efeito de alterar cor de fundo e imagem.
     alterarContexto('foco')
+    focoBt.classList.add('active')//classList.add adiciona classe. Ou seja, ao clicar no botão, ele adiciona a classe 'active' do CSS, para que o botão herde a classe e fique visualmente selecionado.
 })
 
 curtoBt.addEventListener('click', () => {
     alterarContexto('descanso-curto')
+    curtoBt.classList.add('active')
 })
 
 longoBt.addEventListener('click', () => {
     alterarContexto('descanso-longo')
+    longoBt.classList.add('active')
 })
 
 function alterarContexto(contexto) {
+    botoes.forEach(function (contexto){// seleciona a variavel botoes (criada para puxar a classe dos botões). Utiliza o forEach para percorrer todos os botões e alterar cada um criando a função contexto.
+        contexto.classList.remove('active')// remove o estilo active de acordo com o contexto (clique).
+    })
     html.setAttribute('data-contexto', contexto) // pega o HTML, o atributo 'data-contexto' e muda o contexto
     banner.setAttribute('src', `imagens/${contexto}.png`) // pega o banner (imagem) e muda o contexto (altera imagem ao clicar nos botoes). Pelo fato de contexto ser um elemento JS, é necessário inserir como string concatenada, pois imagens/... é um atributo HTML.
     switch (contexto) {// pega o parametro contexto (que é responsável por fazer o efeito de alterar)
