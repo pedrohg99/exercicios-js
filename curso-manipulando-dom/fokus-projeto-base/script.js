@@ -1,10 +1,21 @@
-const html = document.querySelector('html') // relaciona a tag HTML do .html para alterar o contexto.
+const html = document.querySelector('html') // relaciona a tag HTML do .html para alterar o contexto
 const focoBt = document.querySelector('.app__card-button--foco') // relaciona as classes dos botões para inserir o evento dos clicks
 const curtoBt = document.querySelector('.app__card-button--curto') // relaciona as classes dos botões para inserir o evento dos clicks
 const longoBt = document.querySelector('.app__card-button--longo')// relaciona as classes dos botões para inserir o evento dos clicks
 const banner = document.querySelector('.app__image')// relaciona a classe da imagem para alterar com o evento click
 const titulo = document.querySelector('.app__title')// relaciona a classe do título para alterar com o evento click
 const botoes = document.querySelectorAll('.app__card-button') // pega todos os elementos que estão com a classe app__card-button
+const musicaFocoInput = document.querySelector('#alternar-musica') // pega o ID do botão que ativa a musica
+const musica = new Audio('sons/luna-rise-part-one.mp3') // adiciona ao JS o arquivo de audio com new Audio
+musica.loop = true;
+
+musicaFocoInput.addEventListener('change', () => {//pega a const musicaFocoInput, passa o parâmetro 'change' para o método addEventListener, para alterar a propriedade do elemento e adiciona uma condicionante 
+    if(musica.paused){ // se musica estiver com a propriedade paused pode dar play, pois só pode dar play se estiver pausada.
+        musica.play() // dá play na musica
+    } else { // se não
+        musica.pause() // musica para
+    }
+})
 
 focoBt.addEventListener('click', () => { //cria evento click (efeito ao clicar no botao) inserindo a função alterarContexto para fazer o efeito de alterar cor de fundo e imagem.
     alterarContexto('foco')
