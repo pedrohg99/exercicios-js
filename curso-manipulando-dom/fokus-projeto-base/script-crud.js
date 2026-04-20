@@ -1,15 +1,14 @@
-const { createElement } = require("react")
-
 const btnAdicionarTarefa = document.querySelector('.app__button--add-task')
 const formAdicionarTarefa = document.querySelector('.app__form-add-task')
 const textarea = document.querySelector('.app__form-textarea')
-const tarefas = []
+const tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
+const ulTarefas = document.querySelector('.app__section-task-list')
 
 function criarElementoTarefa (tarefa) {
     const li = document.createElement('li') // cria o <li> baseado na referencia do html apresentado em tarefa.html.
     li.classList.add('app__section-task-list-item') // adiciona uma classe css ao <li>
     const svg = document.createElement('svg') // cria o SVG que esta na referencia html, em tarefa.html
-    svg.innerHTML// cria elemento SVG utilizando o innerHTML = 
+    svg.innerHTML = // cria elemento SVG utilizando o innerHTML
     `
         <svg>
             <svg class="app__section-task-icon-status" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,7 +25,8 @@ function criarElementoTarefa (tarefa) {
     botao.append(imagemBotao) //append encaixa elemento imagem no botão
     li.append(svg) //append encaixa elemento criado em SVG na lista
     li.append(paragrafo)//append encaixa elemento criado em parágrafo na lista
-    li.append(botao)//append encaixa elemento criado em botão na lista 
+    li.append(botao)//append encaixa elemento criado em botão na lista
+    return li
 }
 
 btnAdicionarTarefa.addEventListener('click', () => {
@@ -42,5 +42,9 @@ formAdicionarTarefa.addEventListener('submit', (evento) => {
     localStorage.setItem('tarefas', JSON.stringify(tarefas)) // guarda a lista inteira de tarefas. JSON.stringfy transforma o objeto em string, guardando o valor adicionado.
 })
 
+tarefas.forEach(tarefa => {
+    const elementoTarefa = criarElementoTarefa(tarefa)
+    ulTarefas.append(elementoTarefa)
+});
 
 
