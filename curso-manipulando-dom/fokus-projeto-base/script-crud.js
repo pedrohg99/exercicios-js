@@ -20,6 +20,10 @@ function criarElementoTarefa (tarefa) {
     paragrafo.textContent = tarefa.descricao // paragrafo receberá o que for digitado no formulário, objeto guardado em tarefa.
     const botao = document.createElement('button') // cria botão
     botao.classList.add('app_button-edit')
+    botao.onclick = () => {// cria ação ao botão Editar.
+        const novaDescricao = prompt('Qual é o novo nome da tarefa?') // cria uma constante para guardar o retorno do que será digitado no prompt e configura mensagem que aparecerá no prompt
+        paragrafo.textContent = novaDescricao // sobrescreve o conteúdo inserido via tarefa.descricao no parágrafo e substitui pelo conteúdo inserido em novaDescricao
+    }
     const imagemBotao = document.createElement('img') // puxa a imagem do botão
     imagemBotao.setAttribute('src', 'imagens/edit.png') // aplica a imagem do botão no atributo src
     botao.append(imagemBotao) //append encaixa elemento imagem no botão
@@ -44,7 +48,6 @@ formAdicionarTarefa.addEventListener('submit', (evento) => {
     localStorage.setItem('tarefas', JSON.stringify(tarefas)) // guarda a lista inteira de tarefas. JSON.stringfy transforma o objeto em string, guardando o valor adicionado.
     textarea.value = '' // value para que ao adicionar a tarefa, o formulário seja limpo.
     formAdicionarTarefa.classList.add('hidden') // adiciona a classe hidden para esconder formulário novamente após adicionar nova tarefa.
-    tarefas.value = ''
 })
 
 tarefas.forEach(tarefa => {
