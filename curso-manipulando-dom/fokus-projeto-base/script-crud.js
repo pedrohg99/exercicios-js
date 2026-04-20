@@ -14,9 +14,5 @@ formAdicionarTarefa.addEventListener('submit', (evento) => {
     }
     tarefas.push(tarefa) // joga os valores do array para dentro da const tarefa
     localStorage.setItem('tarefas', JSON.stringify(tarefas)) // guarda a lista inteira de tarefas. JSON.stringfy transforma o objeto em string, guardando o valor adicionado.
-<<<<<<< HEAD
-})
-=======
 })
 
->>>>>>> 3ca961a281932dbc8a6b584077647a27aedd2ab5
