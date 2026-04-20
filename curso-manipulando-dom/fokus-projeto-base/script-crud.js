@@ -4,6 +4,10 @@ const textarea = document.querySelector('.app__form-textarea')
 const tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
 const ulTarefas = document.querySelector('.app__section-task-list')
 
+function atualizarTarefas () {
+    localStorage.setItem('tarefas', JSON.stringify(tarefas)) // cria função para armazenamento na localStorage
+}
+
 function criarElementoTarefa (tarefa) {
     const li = document.createElement('li') // cria o <li> baseado na referencia do html apresentado em tarefa.html.
     li.classList.add('app__section-task-list-item') // adiciona uma classe css ao <li>
@@ -23,6 +27,8 @@ function criarElementoTarefa (tarefa) {
     botao.onclick = () => {// cria ação ao botão Editar.
         const novaDescricao = prompt('Qual é o novo nome da tarefa?') // cria uma constante para guardar o retorno do que será digitado no prompt e configura mensagem que aparecerá no prompt
         paragrafo.textContent = novaDescricao // sobrescreve o conteúdo inserido via tarefa.descricao no parágrafo e substitui pelo conteúdo inserido em novaDescricao
+        tarefa.descricao = novaDescricao
+        atualizarTarefas() // chama função de armazenamento localSotrage para que seja aplicada a alteração da tarefa também.
     }
     const imagemBotao = document.createElement('img') // puxa a imagem do botão
     imagemBotao.setAttribute('src', 'imagens/edit.png') // aplica a imagem do botão no atributo src
@@ -45,9 +51,10 @@ formAdicionarTarefa.addEventListener('submit', (evento) => {
     tarefas.push(tarefa) // joga os valores do array para dentro da const tarefa
     const elementoTarefa = criarElementoTarefa(tarefa)
     ulTarefas.append(elementoTarefa) // append para o elementoTarefa (tarefa criada) apareça na lista.
-    localStorage.setItem('tarefas', JSON.stringify(tarefas)) // guarda a lista inteira de tarefas. JSON.stringfy transforma o objeto em string, guardando o valor adicionado.
+    atualizarTarefas() // guarda a lista inteira de tarefas via função criada.
     textarea.value = '' // value para que ao adicionar a tarefa, o formulário seja limpo.
     formAdicionarTarefa.classList.add('hidden') // adiciona a classe hidden para esconder formulário novamente após adicionar nova tarefa.
+
 })
 
 tarefas.forEach(tarefa => {
