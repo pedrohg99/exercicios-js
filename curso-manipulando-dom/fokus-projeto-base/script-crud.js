@@ -3,6 +3,7 @@ const formAdicionarTarefa = document.querySelector('.app__form-add-task')
 const textarea = document.querySelector('.app__form-textarea')
 const tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
 const ulTarefas = document.querySelector('.app__section-task-list')
+const btnCancelar = document.querySelector('.app__form-footer__button--cancel');
 
 function atualizarTarefas () {
     localStorage.setItem('tarefas', JSON.stringify(tarefas)) // cria função para armazenamento na localStorage
@@ -26,9 +27,11 @@ function criarElementoTarefa (tarefa) {
     botao.classList.add('app_button-edit')
     botao.onclick = () => {// cria ação ao botão Editar.
         const novaDescricao = prompt('Qual é o novo nome da tarefa?') // cria uma constante para guardar o retorno do que será digitado no prompt e configura mensagem que aparecerá no prompt
-        paragrafo.textContent = novaDescricao // sobrescreve o conteúdo inserido via tarefa.descricao no parágrafo e substitui pelo conteúdo inserido em novaDescricao
-        tarefa.descricao = novaDescricao
-        atualizarTarefas() // chama função de armazenamento localSotrage para que seja aplicada a alteração da tarefa também.
+        if (novaDescricao){ // condicional para impedir criação de tarefa vazia
+            paragrafo.textContent = novaDescricao // sobrescreve o conteúdo inserido via tarefa.descricao no parágrafo e substitui pelo conteúdo inserido em novaDescricao
+            tarefa.descricao = novaDescricao
+            atualizarTarefas() // chama função de armazenamento localSotrage para que seja aplicada a alteração da tarefa também.
+        }
     }
     const imagemBotao = document.createElement('img') // puxa a imagem do botão
     imagemBotao.setAttribute('src', 'imagens/edit.png') // aplica a imagem do botão no atributo src
@@ -61,5 +64,11 @@ tarefas.forEach(tarefa => {
     const elementoTarefa = criarElementoTarefa(tarefa)
     ulTarefas.append(elementoTarefa)
 });
+
+const limparFormulario = () => {
+    textarea.value = '';  // Limpe o conteúdo do textarea
+    formularioTarefa.classList.add('hidden');  // Adicione a classe 'hidden' ao formulário para escondê-lo
+}
+btnCancelar.addEventListener('click', limparFormulario);
 
 
