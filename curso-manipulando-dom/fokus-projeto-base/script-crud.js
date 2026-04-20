@@ -4,6 +4,7 @@ const textarea = document.querySelector('.app__form-textarea')
 const tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
 const ulTarefas = document.querySelector('.app__section-task-list')
 const btnCancelar = document.querySelector('.app__form-footer__button--cancel');
+const paragrafoDescricaoTarefa = document.querySelector('.app__section-active-task-description')
 
 function atualizarTarefas () {
     localStorage.setItem('tarefas', JSON.stringify(tarefas)) // cria função para armazenamento na localStorage
@@ -39,6 +40,10 @@ function criarElementoTarefa (tarefa) {
     li.append(svg) //append encaixa elemento criado em SVG na lista
     li.append(paragrafo)//append encaixa elemento criado em parágrafo na lista
     li.append(botao)//append encaixa elemento criado em botão na lista
+    li.onclick = () => { //cria efeito onclick substituindo o textcontent pela tarefa criada
+        paragrafoDescricaoTarefa.textContent = tarefa.descricao//cria efeito onclick substituindo o textcontent pela tarefa criada
+        li.classList.add('app__section-task-list-item-active') // adiciona a classe CSS active ao clicar na tarefa.
+    }
     return li
 }
 
