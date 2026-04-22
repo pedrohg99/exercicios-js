@@ -3,6 +3,7 @@ const formAdicionarTarefa = document.querySelector('.app__form-add-task')
 const textarea = document.querySelector('.app__form-textarea')
 const tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
 let tarefaSelecionada = null
+let liTarefaSelecionada = null //cria a constante com o mesmo objetivo da tarefa selecionada
 const ulTarefas = document.querySelector('.app__section-task-list')
 const btnCancelar = document.querySelector('.app__form-footer__button--cancel');
 const paragrafoDescricaoTarefa = document.querySelector('.app__section-active-task-description')
@@ -53,10 +54,13 @@ function criarElementoTarefa (tarefa) {
         if (tarefaSelecionada == tarefa){ // se no clique, a tarefa selecionada for igual a tarefa clicada
             paragrafoDescricaoTarefa.textContent = ''// primeiro: retire-a da lista onde ela aparece (textContent) vazio
             tarefaSelecionada = null // bordas do efeito focus será nulo, ou seja, removido.
+            liTarefaSelecionada = null
             return // pare de executar o if
         }
-        tarefaSelecionada = tarefa 
+        tarefaSelecionada = tarefa
+        liTarefaSelecionada = li
         paragrafoDescricaoTarefa.textContent = tarefa.descricao//cria efeito onclick substituindo o textcontent pela tarefa criada
+
         li.classList.add('app__section-task-list-item-active') // adiciona a classe CSS active ao clicar na tarefa.
     }
 
@@ -91,5 +95,13 @@ const limparFormulario = () => {
     formularioTarefa.classList.add('hidden');  // Adicione a classe 'hidden' ao formulário para escondê-lo
 }
 btnCancelar.addEventListener('click', limparFormulario);
+
+document.addEventListener('FocoFinalizado', () => { // puxa o aviso inserido em script.js
+    if (tarefaSelecionada && liTarefaSelecionada) { // se tarefa selecionada e a lista da tarefa selecionada estiver finalizado
+        liTarefaSelecionada.classList.remove('app__section-task-list-item-active') //remova a classe css que permite o foco deselecionando
+        liTarefaSelecionada.classList.add('app__section-task-list-item-complete') // adicione a classe css para ficar verde o botão
+        liTarefaSelecionada.querySelector('button').setAttribute('disabled', 'disabled') // desabilite o botão editar.
+    }
+})
 
 
