@@ -8,6 +8,7 @@ const ulTarefas = document.querySelector('.app__section-task-list')
 const btnCancelar = document.querySelector('.app__form-footer__button--cancel');
 const paragrafoDescricaoTarefa = document.querySelector('.app__section-active-task-description')
 const btnRemoverConcluidas = document.querySelector('#btn-remover-concluidas')
+const btnRemoverTodas = document.querySelector('#btn-remover-todas')
 
 function atualizarTarefas () {
     localStorage.setItem('tarefas', JSON.stringify(tarefas)) // cria função para armazenamento na localStorage
@@ -112,13 +113,16 @@ document.addEventListener('FocoFinalizado', () => { // puxa o aviso inserido em 
     }
 })
 
-btnRemoverConcluidas.onclick = () => { // cria função onclick para a opção remover tarefas concluidas
-    const seletor = ".app__section-task-list-item-complete" // puxa a classe CSS para identificar as tarefas concluídas da lista
+const removerTarefas = (somenteCompletas) => { // cria função onclick para a opção remover tarefas concluidas
+    const seletor = somenteCompletas ? ".app__section-task-list-item-complete" : ".app__section-task-list-item" // puxa a classe CSS para identificar as tarefas concluídas da lista
     document.querySelectorAll(seletor).forEach(elemento =>{ // chama todas as tarefas definidas na constante seletor e percorre via foreach todas elas para aplicar a função de remover elemento.
         elemento.remove()
     })
-    tarefas = tarefas.filter(tarefa => !tarefa.completa) // lista de tarefas recebe lista de tarefas filtrada por por tarefa de tarefa completa
+    tarefas = somenteCompletas ? tarefas.filter(tarefa => !tarefa.completa) : [] // lista de tarefas recebe lista de tarefas filtrada por por tarefa de tarefa completa
     atualizarTarefas() // atualiza localStoarage
 }
+
+btnRemoverConcluidas.onclick = () => removerTarefas (true)
+btnRemoverTodas.onclick = () => removerTarefas (false)
 
 
