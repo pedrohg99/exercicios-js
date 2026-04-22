@@ -2,6 +2,7 @@ const btnAdicionarTarefa = document.querySelector('.app__button--add-task')
 const formAdicionarTarefa = document.querySelector('.app__form-add-task')
 const textarea = document.querySelector('.app__form-textarea')
 const tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
+let tarefaSelecionada = null
 const ulTarefas = document.querySelector('.app__section-task-list')
 const btnCancelar = document.querySelector('.app__form-footer__button--cancel');
 const paragrafoDescricaoTarefa = document.querySelector('.app__section-active-task-description')
@@ -26,6 +27,7 @@ function criarElementoTarefa (tarefa) {
     paragrafo.textContent = tarefa.descricao // paragrafo receberá o que for digitado no formulário, objeto guardado em tarefa.
     const botao = document.createElement('button') // cria botão
     botao.classList.add('app_button-edit')
+
     botao.onclick = () => {// cria ação ao botão Editar.
         const novaDescricao = prompt('Qual é o novo nome da tarefa?') // cria uma constante para guardar o retorno do que será digitado no prompt e configura mensagem que aparecerá no prompt
         if (novaDescricao){ // condicional para impedir criação de tarefa vazia
@@ -34,16 +36,30 @@ function criarElementoTarefa (tarefa) {
             atualizarTarefas() // chama função de armazenamento localSotrage para que seja aplicada a alteração da tarefa também.
         }
     }
+
     const imagemBotao = document.createElement('img') // puxa a imagem do botão
     imagemBotao.setAttribute('src', 'imagens/edit.png') // aplica a imagem do botão no atributo src
+
     botao.append(imagemBotao) //append encaixa elemento imagem no botão
     li.append(svg) //append encaixa elemento criado em SVG na lista
     li.append(paragrafo)//append encaixa elemento criado em parágrafo na lista
     li.append(botao)//append encaixa elemento criado em botão na lista
+
     li.onclick = () => { //cria efeito onclick substituindo o textcontent pela tarefa criada
+        document.querySelectorAll('.app__section-task-list-item-active') // busca todos os elementos com a classe css 
+            .forEach(elemento => { //percorre todos os elementos encontrados e 
+                elemento.classList.remove('app__section-task-list-item-active')//PARA CADA elemento ele remove a classe CSS indicada entre ()
+            })
+        if (tarefaSelecionada == tarefa){ // se no clique, a tarefa selecionada for igual a tarefa clicada
+            paragrafoDescricaoTarefa.textContent = ''// primeiro: retire-a da lista onde ela aparece (textContent) vazio
+            tarefaSelecionada = null // bordas do efeito focus será nulo, ou seja, removido.
+            return // pare de executar o if
+        }
+        tarefaSelecionada = tarefa 
         paragrafoDescricaoTarefa.textContent = tarefa.descricao//cria efeito onclick substituindo o textcontent pela tarefa criada
         li.classList.add('app__section-task-list-item-active') // adiciona a classe CSS active ao clicar na tarefa.
     }
+
     return li
 }
 
