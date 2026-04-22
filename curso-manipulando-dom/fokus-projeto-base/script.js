@@ -31,7 +31,7 @@ musicaFocoInput.addEventListener('change', () => {//pega a const musicaFocoInput
 })
 
 focoBt.addEventListener('click', () => { //cria evento click (efeito ao clicar no botao) inserindo a função alterarContexto para fazer o efeito de alterar cor de fundo e imagem.
-    tempoDecorridoEmSegundos = 30 // configura o tempo de 25min (15000s) para o contexto foco
+    tempoDecorridoEmSegundos = 1500 // configura o tempo de 25min (1500s) para o contexto foco
     alterarContexto('foco')
     focoBt.classList.add('active')//classList.add adiciona classe. Ou seja, ao clicar no botão, ele adiciona a classe 'active' do CSS, para que o botão herde a classe e fique visualmente selecionado.
 })
