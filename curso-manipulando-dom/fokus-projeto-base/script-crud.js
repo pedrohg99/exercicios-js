@@ -46,24 +46,29 @@ function criarElementoTarefa (tarefa) {
     li.append(paragrafo)//append encaixa elemento criado em parágrafo na lista
     li.append(botao)//append encaixa elemento criado em botão na lista
 
-    li.onclick = () => { //cria efeito onclick substituindo o textcontent pela tarefa criada
-        document.querySelectorAll('.app__section-task-list-item-active') // busca todos os elementos com a classe css 
-            .forEach(elemento => { //percorre todos os elementos encontrados e 
-                elemento.classList.remove('app__section-task-list-item-active')//PARA CADA elemento ele remove a classe CSS indicada entre ()
-            })
-        if (tarefaSelecionada == tarefa){ // se no clique, a tarefa selecionada for igual a tarefa clicada
-            paragrafoDescricaoTarefa.textContent = ''// primeiro: retire-a da lista onde ela aparece (textContent) vazio
-            tarefaSelecionada = null // bordas do efeito focus será nulo, ou seja, removido.
-            liTarefaSelecionada = null
-            return // pare de executar o if
+    if (tarefa.completa) {
+        li.classList.add('app__section-task-list-item-complete') // adicione a classe css para ficar verde o botão
+        botao.setAttribute('disabled', 'disabled') // desabilite o botão editar.         
+    } else {
+        li.onclick = () => { //cria efeito onclick substituindo o textcontent pela tarefa criada
+            document.querySelectorAll('.app__section-task-list-item-active') // busca todos os elementos com a classe css 
+                .forEach(elemento => { //percorre todos os elementos encontrados e 
+                    elemento.classList.remove('app__section-task-list-item-active')//PARA CADA elemento ele remove a classe CSS indicada entre ()
+                })
+            if (tarefaSelecionada == tarefa){ // se no clique, a tarefa selecionada for igual a tarefa clicada
+                paragrafoDescricaoTarefa.textContent = ''// primeiro: retire-a da lista onde ela aparece (textContent) vazio
+                tarefaSelecionada = null // bordas do efeito focus será nulo, ou seja, removido.
+                liTarefaSelecionada = null
+                return // pare de executar o if
+            }
+            tarefaSelecionada = tarefa
+            liTarefaSelecionada = li
+            paragrafoDescricaoTarefa.textContent = tarefa.descricao//cria efeito onclick substituindo o textcontent pela tarefa criada
+    
+            li.classList.add('app__section-task-list-item-active') // adiciona a classe CSS active ao clicar na tarefa.
         }
-        tarefaSelecionada = tarefa
-        liTarefaSelecionada = li
-        paragrafoDescricaoTarefa.textContent = tarefa.descricao//cria efeito onclick substituindo o textcontent pela tarefa criada
-
-        li.classList.add('app__section-task-list-item-active') // adiciona a classe CSS active ao clicar na tarefa.
     }
-
+    
     return li
 }
 
@@ -101,6 +106,8 @@ document.addEventListener('FocoFinalizado', () => { // puxa o aviso inserido em 
         liTarefaSelecionada.classList.remove('app__section-task-list-item-active') //remova a classe css que permite o foco deselecionando
         liTarefaSelecionada.classList.add('app__section-task-list-item-complete') // adicione a classe css para ficar verde o botão
         liTarefaSelecionada.querySelector('button').setAttribute('disabled', 'disabled') // desabilite o botão editar.
+        tarefaSelecionada.completa = true
+        atualizarTarefas()
     }
 })
 
